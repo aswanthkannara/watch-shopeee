@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+<title>Watches an E-Commerce online Shopping Category Flat Bootstrap Responsive Website Template| Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'assets/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'assets/css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--webfont-->
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Dorsa' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<!-- start menu -->
+<link href="{% static 'assets/css/megamenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="{% static 'assets/js/megamenu.js' %}"></script>
+
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script src="{% static 'assets/js/jquery.easydropdown.js' %}"></script>
+	
+<script src="{% static 'assets/js/simpleCart.min.js' %}"> </script>
+</head>
+<body>
+	<div class="banner">
+   	  <div class="container">
+   	  	<div class="header_top">
+   	  	   <div class="header_top_left">
+	  	      <div class="box_11"><a href="">
+		      <h4><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><img src="{% static 'assets/images/bag.png' %}" alt=""/><div class="clearfix"> </div></h4>
+		      </a></div>
+	          
+	          <div class="clearfix"> </div>
+	       </div>
+           <div class="header_top_right">
+		  	
+			 <ul class="header_user_info">
+			  <a class="login" href="login.html">
+				<i class="user"> </i> 
+				<li class="user_desc">{{request.session.username}}</li>
+			  </a>
+			  <a class="" href="{% url 'home:logout' %}">Logout</a>
+			  
+
+			  <div class="clearfix"> </div>
+		     </ul>
+		   
+		            <div class="clearfix"> </div>
+			 </div>
+		     <div class="clearfix"> </div>
+	  </div>
+	  <div class="header_bottom">
+	   <div class="logo">
+		  <h1><a href="index.html"><span class="m_1">W</span>atches</a></h1>
+	   </div>
+
+	        <div class="clearfix"> </div>
+	        </div>
+	    </div>
+
+   <div class="main">
+    <div class="container">
+    	<ul class="content-home">
+			{% for i in products_first_ten %}
+           <li class="col-sm-4">
+              <!-- <a href="single.html" class="item-link" title=""> -->
+                <div class="bannerBox">
+                   <img src="{% static 'assets/images/w1.jpg' %}" class="item-img" title="" alt="" width="100%" height="100%">
+                   <div class="item-html">
+                      <h3>{{i.name}}<span></span></h3>
+                      <p>{{i.highlights}}</p>
+                      <button onclick="myproduct({{i.product_id}})">Shop now!</button>
+                   </div>
+                </div>
+              <!-- </a> -->
+           </li>
+		   {% endfor %}
+		   {% for i in product_from_json %}
+           <li class="col-sm-4">
+              <!-- <a href="single.html" class="item-link" title=""> -->
+                <div class="bannerBox">
+                   <img src="{% static 'assets/images/w1.jpg' %}" class="item-img" title="" alt="" width="100%" height="100%">
+                   <div class="item-html">
+                      <h3>{{i.name}}<span></span></h3>
+                      <p>{{i.highlights}}</p>
+                      <button onclick="myproduct({{i.product_id}})">Shop now!</button>
+                   </div>
+                </div>
+              <!-- </a> -->
+           </li>
+		   {% endfor %}
+           <!-- <li class="col-sm-4">
+              <a href="single.html" class="item-link" title="">
+              </a>
+           </li>  -->
+           <div class="clearfix"> </div>         
+       </ul>
+    </div>
+   </div>
+  
+   <script> 
+ function myproduct(product_id) {
+	
+    window.location.href = '/web/singlepage/' + product_id;
+}
+</script>
+
+
+</body>
+</html>		

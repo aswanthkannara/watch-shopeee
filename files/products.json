@@ -1,0 +1,45 @@
+{
+    "product_details" : [
+    {
+        "name": "Rolex",
+        "price": "19000",
+        "starpcolor": "Golden",
+        "highlights": "GOOD",
+        "status": "1"
+    },
+
+    {
+        "name": "Casio",
+        "price": "15000",
+        "starpcolor": "black",
+        "highlights": "Good",
+        "status": "1"
+    },
+
+    {
+        "name": "Titan",
+        "price": "4000",
+        "starpcolor": "Rose",
+        "highlights": "Good",
+        "status": "1"
+    },
+
+    {
+        "name": "Apple",
+        "price": "60000",
+        "starpcolor": "red",
+        "highlights": "Good",
+        "status": "1"
+    },
+
+    {
+        "name": "Fast Track",
+        "price": "5000",
+        "starpcolor": "Green",
+        "highlights": "Good",
+        "status": "1"
+    }
+
+    ]
+}
+

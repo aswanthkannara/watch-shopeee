@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<style>
+  #admin_head{
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 3em;
+    letter-spacing: -2px;
+    border-bottom: 2px solid black;
+    text-transform: uppercase;
+  }
+  div.dataTables_wrapper div.dataTables_length select {
+    width: 65px;
+    display: inline-block;
+    height: 0%;
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/b-1.2.4/b-html5-1.2.4/b-print-1.2.4/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.js"
+></script>
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/style.css" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/b-1.2.4/b-html5-1.2.4/b-print-1.2.4/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.css"
+/>
+
+<a href="{% url 'home:addproduct' %}" class="nav-item nav-link px-3"
+  >Add Product</a
+>
+
+<h1 id="admin_head">Products</h1>
+
+<table class="table table-striped" id="table_id">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Strapcolor</th>
+      <th scope="col">highlights</th>
+      <th scope="col">price</th>
+      <th scope="col">edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in product %}
+    <tr>
+      <td scope="row">{{forloop.counter}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.starpcolor}}</td>
+      <td>{{i.highlights}}</td>
+      <td>{{i.price}}</td>
+      <td>
+        <a
+          href="{% url 'home:editproduct' i.product_id %}"
+          class="nav-item nav-link px-3"
+          >Edit</a
+        >
+      </td>
+      <td>
+        <a
+          href="{% url 'home:deleteproduct' i.product_id %}"
+          class="nav-item nav-link px-3"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function () {
+    $("#table_id").DataTable();
+  });
+</script>
+
+{% endblock%}

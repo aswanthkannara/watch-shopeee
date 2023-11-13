@@ -1,0 +1,99 @@
+
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+
+<link href="{% static 'assets/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'assets/css/style.css' %}" rel='stylesheet' type='text/css' />
+</head>
+<style>
+    
+    @media print {
+        .dontPrint{
+        display:none;
+        }
+       }
+
+</style>
+<body>
+<div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <i class="far fa-building text-danger fa-6x float-start"></i>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xl-12">
+
+        <ul class="list-unstyled float-end">
+          <li style="font-size: 30px; color: red;">Watches</li>
+        
+        </ul>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <h3 class="text-uppercase text-center mt-3" style="font-size: 40px;">Invoice</h3>
+      <p>{{invoice_id}}</p>
+    </div>
+
+    <div class="row mx-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in cart %}
+          <tr>
+            <td>{{i.product_id.name}}</td>
+            <td><i class="fas fa-dollar-sign"></i>{{i.tottal_price}}</td>
+          </tr>
+          {% endfor %}
+         
+        </tbody>
+      </table>
+
+    </div>
+    <div class="row">
+      <div class="col-xl-8">
+        <ul class="list-unstyled float-end me-0">
+          <li><span class="me-3 float-start">Total Amount:</span><i class="fas fa-dollar-sign"></i>{{order.total_amount}}
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xl-8" style="margin-left:60px">
+        <p class="float-end"
+          style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+          Total:
+          <span><i class="fas fa-dollar-sign"></i>{{order.total_amount}}</span></p>
+      </div>
+
+    </div>
+
+    <div class="row mt-2 mb-5">
+      <!-- <p class="fw-bold">Date: <span class="text-muted">23 June 20221</span></p> -->
+     
+   <button onclick="window.print();" class="dontPrint"> PRINT</button>
+ 
+    </div>
+
+  </div>
+
+
+
+</div>
+<div class="card-footer bg-black"></div>
+</div>
+
+</body>
+</html>
